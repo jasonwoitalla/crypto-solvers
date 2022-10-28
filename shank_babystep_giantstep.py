@@ -95,4 +95,5 @@ def sbsgs_list(g, h, p, verbose=False):
     return None
     
 
-sbsgs_list(131, 3, 137, True)
+if __name__ == "__main__":
+    sbsgs_list(131, 3, 137, True)

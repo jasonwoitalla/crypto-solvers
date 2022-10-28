@@ -8,4 +8,3 @@ def brute_force(g, h, p):
 
 if __name__ == "__main__":
     brute_force(2, 893, 1373)
-

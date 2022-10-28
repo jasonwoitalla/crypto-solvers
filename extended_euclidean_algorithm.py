@@ -57,9 +57,7 @@ def gcd_euclidean_algo(a, b, verbose=False):
 
 if __name__ == "__main__":
     inputs = [
-        ((7*43), 8),
-        ((8*43), 7),
-        ((8*7), 43)
+        (1080, 73)
     ]
 
     for m,n in inputs:

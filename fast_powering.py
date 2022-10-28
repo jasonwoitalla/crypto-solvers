@@ -1,6 +1,14 @@
 def fast_pow(g, x, p, verbose=False):
     # Checks if left-most bit is active and then multiply
     # our answer by the corresponding power of 2
+    if g == 2:
+        if verbose:
+            print("Performing Fast Powering Algorithm on $" + str(g) + "^{" + str(x) + "}(\\text{mod }" + str(p) + ")$", end="\\\\\n")
+        res =  2 ** x % p
+        if verbose:
+            print("$" + str(g) + "^{" + str(x) + "}(\\text{mod }" + str(p) + ") = " + str(res) + "$", end="\\\\\n")
+        return res
+
     res = 1
     count = 0
     exp = x
@@ -30,10 +38,11 @@ def fast_pow(g, x, p, verbose=False):
     return res
 
 inputs = [
-    (23, 11, 43)
+    (614, 577, 1159)
 ]
 
 if __name__ == "__main__":
     for g,x,p in inputs:
         fast_pow(g, x, p, True)
         print("\\\\")
+    

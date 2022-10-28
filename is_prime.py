@@ -13,4 +13,6 @@ def is_prime(p, verbose=False):
         print("Verified all numbers $2 \\leq x \\leq " + str(int(math.sqrt(p))) + "$ and not factors of " + str(p) + ". Therefore it is prime.", end="\\\\\n")
     return True
 
-is_prime(123456789, True)
+if __name__ == "__main__":
+    is_prime(1159, True)
+    
