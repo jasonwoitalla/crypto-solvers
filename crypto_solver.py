@@ -4,9 +4,12 @@ from fast_powering import fast_pow
 from is_prime import is_prime
 from chinese_remainder_theorem import chinese_remainder_theorem
 from pohlig_hellman import pohlig_hellman
+from shank_babystep_giantstep import sbsgs_list
+from miller_rabin_test import miller_rabin
 
 
-modes = ["gcd", "fast-pow", "is-prime", "crt", "shanks", "pohlig"]
+END_LINE = "\\\\\n"
+modes = ["gcd", "fast-pow", "is-prime", "crt", "shanks", "pohlig", "miller-rabin"]
 
 
 if __name__ == "__main__":
@@ -56,7 +59,14 @@ if __name__ == "__main__":
                 else:
                     mode = ""
             elif mode == modes[4]:
-                pass
+                print("[Shanks] Performing 'Shanks Baby Step Giant Step' please enter the numbers g^x(mod p) in that order to perform the algorithm")
+                print("[Shanks] Enter 'c' if you would like to go back to the main menu")
+                my_input = input("[Shanks] Enter g^x(mod p): ")
+                if my_input != "c":
+                    tuple_input = tuple(my_input.split())
+                    sbsgs_list(int(tuple_input[0]), int(tuple_input[1]), int(tuple_input[2]), True)
+                else:
+                    mode = ""
             elif mode == modes[5]: 
                 print("[POHLIG] Performing 'Pohlig Hellman Algorithm' to solve the discrete log problem g^x = h(mod p)")
                 print("[POHLIG] Enter 'c' if you would like to go back to the main menu")
@@ -64,6 +74,16 @@ if __name__ == "__main__":
                 if my_input != "c":
                     tuple_input = tuple(my_input.split())
                     pohlig_hellman(int(tuple_input[0]), int(tuple_input[1]), int(tuple_input[2]))
+                else:
+                    mode = ""
+            elif mode == modes[6]:
+                print("[Miller Rabin] Performing 'Miller Rabin Test' to check if a number is prime", end=END_LINE)
+                print("[Miller Rabin] Enter 'c' if you would like to go back to the main menu", end=END_LINE)
+                my_input = input("[Miller Rabin] Enter a number and witness: ")
+                if my_input != "c":
+                    print(END_LINE, end="")
+                    tuple_input = tuple(my_input.split())
+                    miller_rabin(int(tuple_input[0]), int(tuple_input[1]), True)
                 else:
                     mode = ""
             else: # we are not in a mode
